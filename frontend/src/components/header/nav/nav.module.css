@@ -1,0 +1,10 @@
+.nav {
+    padding: 1em;
+    display: flex;
+}
+
+.link  {
+    padding: 0.5em;
+    background-color: rgb(234, 160, 160);
+    color: #fff;
+}

@@ -1,0 +1,13 @@
+.container > * {
+    /* word-wrap: break-word; */
+    /* word-break: break-word; */
+}
+
+.table {
+    /* margin: 2em; */
+    /* min-width: 100%; */
+}
+
+/* .column { */
+    /* width: 500px; */
+/* } */
