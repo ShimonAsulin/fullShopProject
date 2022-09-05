@@ -1,0 +1,10 @@
+:root {
+    --WhiteAgg: #FAF3DD;
+    --primaryColor: #68B0AB;
+    --secondaryColor2: #C8D5B9;
+    --secondaryColor: #8FC0A9;
+}
+
+.message {
+    color: var(--primaryColor);
+}

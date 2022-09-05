@@ -1,26 +1,45 @@
 import React from "react";
 import styles from "./nav.module.css";
-import styled from 'styled-components'
 import { useMyContext } from "../../../MyContext";
-import { Link  } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const Nav = () => {
   const {inCart } = useMyContext()
   const {cart} = inCart
   const isAdmin = true
+
+
   // style for Link navigation
   const linkStyle = {
-    margin: "1rem",
+    margin: ".5em",
+    padding: ".5em",
     textDecoration: "none",
-    color: 'blue'
+    color: '#FAF3DD',
+    border: '1px solid #FAF3DD'
+  };
+  const activeLinkStyle = {
+    color: '#ebc33f',
+  };
+
+  const flexEnd = {
+    padding: ".5em",
+    textDecoration: "none",
+    color: '#FAF3DD',
+    border: '1px solid #FAF3DD',
+    marginLeft: "auto", 
+  }
+
+  let activeStyle = {
+    color: '#b4942b',
+    textDecoration: "underline",
+    
   };
 
   return (
-    <div>
-      <Link to="/" style={linkStyle}> home </Link>
-      <Link to="/about" style={linkStyle}>  about </Link>
-      <Link to="/cart" style={linkStyle}> cart({cart.length}) </Link>
-      {isAdmin && <Link to="/admin" style={linkStyle}>admin</Link>}
-      
+    <div className={styles.nav}>
+      <NavLink to="/" style={linkStyle}> home </NavLink>
+      <NavLink to="/about" style={linkStyle}>  about </NavLink>
+      {isAdmin && <NavLink to="/admin" style={linkStyle}>admin</NavLink>}
+      <NavLink to="/cart" style={flexEnd}> 🛍️({cart.length}) </NavLink>
     </div>
   );
 };

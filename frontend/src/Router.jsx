@@ -1,8 +1,8 @@
-import { Routes, Route, Link } from "react-router-dom";
-import React, { useContext } from "react";
+import { Routes, Route} from "react-router-dom";
+
 import About from "./Pages/about/About";
 import Cart from "./components/header/cart/Cart";
-import NotFound from "./components/NotFound";
+import NotFound from "./Pages/NotFound/NotFound";
 import Admin from "./Pages/admin/Admin";
 import App from "./App";
 import DetailProductPage from "./components/products/detailProductPage/DetailProductPage";
@@ -21,7 +21,7 @@ const Router = () => {
           <Route path="cart" element={<Cart />} />
           <Route path="admin" element={<Admin />} />
           <Route path="product/:productId" element={<DetailProductPage />} />
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       ) : (
         <Routes>

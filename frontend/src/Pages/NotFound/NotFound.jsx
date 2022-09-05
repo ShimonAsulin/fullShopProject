@@ -1,3 +1,6 @@
+import "./NotFound.module.css";
+
+
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 
@@ -7,13 +10,13 @@ const navigate = useNavigate()
     useEffect(()=>{
         const id = setTimeout(() => {
             navigate("/")
-        }, 2000);
+        }, 6000);
 
         return () => {clearTimeout(id)}
     },[])
 
   return (
-    <div>there is no such route please wait and you will be redirected to home page</div>
+    <div className="message">there is no such route please wait and you will be redirected to home page</div>
   )
 }
 

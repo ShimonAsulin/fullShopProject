@@ -1,10 +1,14 @@
-.nav {
-    padding: 1em;
-    display: flex;
+:root {
+    --WhiteAgg: #FAF3DD;
+    --primaryColor: #68B0AB;
+    --secondaryColor2: #C8D5B9;
+    --secondaryColor: #8FC0A9;
 }
 
-.link  {
-    padding: 0.5em;
-    background-color: rgb(234, 160, 160);
-    color: #fff;
+.nav {
+    padding: .7em;
+    display: flex;
+    align-items: center;
+    background-color: var(--primaryColor);
+    margin-bottom: 1.5em;
 }

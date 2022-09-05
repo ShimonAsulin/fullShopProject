@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useMyContext } from "../../../MyContext";
-import styles from "../../products/products.module.css";
+import styles from "./detailProductPage.module.css";
 const DetailProductPage = () => {
   const { products, inCart } = useMyContext();
   const { addToCart } = inCart;
@@ -24,6 +24,9 @@ const DetailProductPage = () => {
       </div>
       <div className={styles["product-info"]}>
         <h5>{singleProduct?.title}</h5>
+      </div>
+      <div >
+        <h5 className={styles["product-info"]}>{singleProduct?.description}</h5>
       </div>
       <button
         className={styles["addToCart-btn"]}

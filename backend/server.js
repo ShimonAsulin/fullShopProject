@@ -1,15 +1,20 @@
 import express, { json } from "express";
 import mongoose from "mongoose";
+
 import path from "path";
 import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+
 import serverResponse from "./utils/serverResponse.js";
 import productAllowedUpdates from "./constants/allowedUpdate.js"
 import * as dotenv from "dotenv";
 dotenv.config();
 
 const { Schema, model, connect } = mongoose;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(json());
@@ -70,15 +75,18 @@ app.get("/api/products/:category", async (req,res)=> {
   }
 })
 
-app.post("/api/products", async (req, res) => {
-  try{
-      const product = new Product({...req.body})
-      await product.save()
-      return serverResponse(res, 200, product)
-  } catch(e){
-      return serverResponse(res, 500, {message: "internal error occured" + e})
-  }
-})
+// app.post("/api/products", async (req, res) => {
+//   try{
+//       const product = new Product({...req.body})
+//       await product.save()
+//       return serverResponse(res, 200, product)
+//   } catch(e){
+//       return serverResponse(res, 500, {message: "internal error occured" + e})
+//   }
+// })
+app.post('/', (req, res) => {
+  res.send('Hello POST!');
+ });
 
 app.delete("/api/product/:productId", async (req,res)=> {
   try{
@@ -117,9 +125,13 @@ app.put("/api/product/:productId", async (req,res) => {
       }
 })
 
-app.get("*", (req, res) => {
-  res.sendFile(__dirname + "/client/build/index.html");
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(__dirname + "/client/build/index.html");
+// });
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+ });
 
 connect("mongodb://localhost:27017/test", {
   useNewUrlParser: true,

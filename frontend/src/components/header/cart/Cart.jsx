@@ -4,16 +4,22 @@ import styles from "../../../style/cart.module.css";
 const Cart = () => {
   const { inCart } = useMyContext();
   const { cart } = inCart;
-  // const [add, setAdd] = useState(1);
-  // useEffect(() => {
-  //   setAdd(cart)
-
-  // }, [cart]);
-
+  useEffect(() => {
+    console.log(cart.map((product) => product.amount)); 
+  
+    return () => {
+    
+    }
+  }, [cart])
+  
+  // const countSum = cart.map(() => cart.amount)
+  // const [productAmount, setProductAmount] = useState(countSum)
+  
   const allProductsInCart = cart.map((product) => {
     let { title, image, price, id, amount } = product;
-    // const addAmount = () => {
-    //   return product.amount++
+    console.log(product.amount);
+    // const addAmount = (amount) => {
+      
     // }
     return (
       <div key={id} className={styles.cartCard}>
@@ -22,21 +28,21 @@ const Cart = () => {
         </div>
         <div className={styles.cartInfo}>
           <h5>{title}</h5>
-          <h5 className={styles.cartAmount}>amount: {amount}</h5>
-          {/* <button onClick={() => addAmount()}>+</button> */}
-          {/* <button>-</button> */}
-        </div>
+          <div>
+          <button className={styles.btn}>+</button>
+          {amount}
+          <button className={styles.btn}>-</button>
+          </div>
         <h6>${price}</h6>
+        </div>
       </div>
     );
-    console.log(amount);
   });
-
   return (
     <div>
       <h2>you have {cart.length} products</h2>
       {allProductsInCart}
-
+      {/* <p>total: {productAmount}</p> */}
       {cart.length > 0 && (
         <button onClick={() => alert("thanks for your purchase")}>
           Pay now
